@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>MALAA POULTRY SYSTEM</title>
+<meta name="theme-color" content="#2F7D32">
+<meta name="description" content="MALAA POULTRY SYSTEM: farm records for batches, egg production, mortality, orders, sales, expenses and inventory.">
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%90%94%3C/text%3E%3C/svg%3E">
+<noscript><meta http-equiv="refresh" content="0; url=login.html"></noscript>
+<style>
+  :root{--p:#2F7D32;--pd:#1B4332;--a:#F5A524;--bg:#FBF8F1;--m:#64748B;--t:#1E1B2E}
+  *{box-sizing:border-box}
+  html,body{height:100%}
+  body{margin:0;font:15px/1.45 system-ui,-apple-system,Segoe UI,Roboto,sans-serif;color:var(--t);
+    background:linear-gradient(160deg,var(--pd) 0%,var(--p) 100%);
+    display:flex;align-items:center;justify-content:center;padding:16px}
+  .card{background:#fff;border-radius:16px;box-shadow:0 10px 30px #0004;width:min(420px,100%);overflow:hidden;text-align:center}
+  .top{background:var(--bg);padding:28px 20px 18px;border-bottom:4px solid var(--a)}
+  .logo{font-size:56px;line-height:1}
+  h1{margin:10px 0 2px;font-size:20px;color:var(--pd)}
+  .top p{margin:0;color:var(--m);font-size:13px}
+  .body{padding:20px}
+  .btn{display:block;width:100%;padding:13px;border:0;border-radius:10px;background:var(--p);color:#fff;
+    font:inherit;font-weight:600;text-decoration:none;cursor:pointer}
+  .btn:hover{background:var(--pd)}
+  .note{color:var(--m);font-size:12px;margin:12px 0 0}
+  ul{list-style:none;margin:0 0 16px;padding:0;color:var(--m);font-size:13px}
+  li{padding:3px 0}
+</style>
+</head>
+<body>
+<main class="card">
+  <div class="top">
+    <div class="logo" aria-hidden="true">🐔</div>
+    <h1>MALAA POULTRY SYSTEM</h1>
+    <p>Farm records and reports</p>
+  </div>
+  <div class="body">
+    <ul>
+      <li>🐣 Batches &nbsp;·&nbsp; 🥚 Egg production</li>
+      <li>⚠️ Mortality &nbsp;·&nbsp; 🧾 Orders &nbsp;·&nbsp; 💰 Sales</li>
+      <li>📉 Expenses &nbsp;·&nbsp; 📦 Inventory &nbsp;·&nbsp; 📈 Reports</li>
+    </ul>
+    <a class="btn" id="go" href="login.html">Open the system</a>
+    <p class="note" id="msg">Taking you to the sign-in page…</p>
+  </div>
+</main>
+<script>
+(function () {
+  var go = document.getElementById('go'), msg = document.getElementById('msg');
+  var target = 'login.html';
+  try {
+    /* Already signed in during this browser session: go straight to the dashboard. */
+    if (sessionStorage.getItem('malaa_srv_session')) target = 'dashboard.html';
+  } catch (e) {}
+  go.href = target;
+  if (target === 'dashboard.html') msg.textContent = 'Opening your dashboard…';
+  /* Short pause so the page is visible, then redirect. The button works if the redirect is blocked. */
+  setTimeout(function () { location.replace(target); }, 700);
+})();
+</script>
+</body>
+</html>
